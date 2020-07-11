@@ -1,28 +1,28 @@
-(function(){
-  const buttons = document.querySelectorAll('.counterBtn')
-  let count= 0
+const counter = document.getElementById('counter');
+const lower = document.getElementsByClassName('prevBtn')[0];
+const add  = document.getElementsByClassName('nextBtn')[0];
+const body = document.querySelector('body');
 
+let count = 0;
 
-  //Add event listeners and functionailty to each button  
-  buttons.forEach(function(button){
-    button.addEventListener('click', function(){
-      if (button.classList.contains('prevBtn')){
-        count--
-      } else if (button.classList.contains('nextBtn')){
-        count++
-      }
+function countColor(count) {
+  counter.textContent = count;
+  if (count < 0) {
+    counter.style.color = 'red';
+  } else if (count > 0) {
+    counter.style.color = 'green'
+  } else {
+    counter.style.color = '#333';
+  }
+}
 
-      //Select the counter text
-      const counter = document.querySelector('#counter')
-      counter.textContent = count
+lower.addEventListener('click', () => {
+  count -= 1;
+  countColor(count);
+  
+})
 
-      if (count < 0 ){
-        counter.style.color = 'red'
-      } else if (count > 0){
-        counter.style.color = 'green'
-      } else {
-        counter.style.color = '#333333'
-      }
-    })
-  })
-})()
+add.addEventListener('click', () => {
+  count += 1;
+  countColor(count);
+})
