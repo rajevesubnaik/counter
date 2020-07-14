@@ -1,7 +1,6 @@
 const counter = document.getElementById('counter');
 const lower = document.getElementsByClassName('prevBtn')[0];
 const add  = document.getElementsByClassName('nextBtn')[0];
-const body = document.querySelector('body');
 
 let count = 0;
 
